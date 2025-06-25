@@ -1,5 +1,5 @@
 export default function Button({buttonName}) {
   return (
-    <button>{buttonName}</button>
+    <button className="btn btn-primary">{buttonName}</button>
   )
 }

@@ -1,11 +1,12 @@
 // import { useState } from 'react'
 import Button from "./component/Button"
+import Navbar from "./component/Navbar"
 
 function App() {
 
   return (
     <>
-      <h1>Welcome to CikguPay</h1>
+      <Navbar/>
       <Button buttonName="Send Reminder"/>
       <Button buttonName="Send Invoice"/>
       <Button buttonName="Add Student"/>
