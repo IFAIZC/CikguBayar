@@ -9,10 +9,10 @@ function App() {
     <>
       <Navbar/>
       <div className="m-5">
-        <Button buttonName="Send Reminder"/>
+        {/* <Button buttonName="Send Reminder"/>
         <Button buttonName="Send Invoice"/>
         <Button buttonName="Add Student"/>
-        <Button buttonName="Remove Student"/>
+        <Button buttonName="Remove Student"/> */}
         <Table/>
       </div>
     </>
