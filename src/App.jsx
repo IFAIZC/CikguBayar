@@ -37,7 +37,7 @@ If you have made the payment, please disregard this message. Thank you.
     <>
       <Navbar/>
       <div className="m-5">
-        <div className="flex flex-wrap flex-col gap-2 justify-center mb-5 md:flex md:flex-row md:justify-start">
+        <div className="flex flex-wrap flex-row gap-2 justify-center mb-5 md:flex md:flex-row md:justify-start">
           {copied ? (
             <Button buttonName="Copied!" onClick={copyButton} className={"btn btn-warning"}/>
           ) : (
