@@ -9,17 +9,28 @@ function App() {
 
   function copyButton() {
     const formattedText = 
-      `Greetings! Please complete your payment before 25th. Your cooperation is highly appreciated.
+      `Payment Reminder - Due by 25th
 
-name: Abu, fee: RM150
-name: Harley, fee: RM150
-name: Abe, fee: RM150
-name: Martin, fee: RM150
-name: Cooper, fee: RM150
-name: Skrunch, fee: RM400
+Dear Parents,
 
-If you have made the payment, please disregard this message. Thank you.
-      `;
+We kindly remind you to complete your child's monthly payment by the 25th. Your timely cooperation is greatly appreciated.
+
+Outstanding Fees:
+
+Abu - RM150
+
+Harley - RM150
+
+Abe - RM150
+
+Martin - RM150
+
+Cooper - RM150
+
+Skrunch - RM400
+
+If payment has already been made, please disregard this message. Thank you! 😊`
+;
     
     // Copy to clipboard
     navigator.clipboard.writeText(formattedText);
