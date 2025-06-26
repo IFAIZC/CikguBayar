@@ -1,11 +1,12 @@
 // import { useState } from 'react'
+import { useState } from 'react'
 import Button from "./component/Button"
 import Navbar from "./component/Navbar"
 import Table from "./component/Table"
 
 function App() {
+  const [copied, setCopied] = useState(false)
 
-  // please add notification once copied!
   function copyButton() {
     const formattedText = 
       `Greetings! Please complete your payment before 25th. Your cooperation is highly appreciated.
@@ -22,6 +23,14 @@ If you have made the payment, please disregard this message. Thank you.
     
     // Copy to clipboard
     navigator.clipboard.writeText(formattedText);
+    
+    // toggle to true = show "Copied!"
+    setCopied(true)
+    
+    // Hide notification after 1 seconds
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
   }
 
   return (
@@ -29,7 +38,11 @@ If you have made the payment, please disregard this message. Thank you.
       <Navbar/>
       <div className="m-5">
         <div className="flex flex-wrap flex-col gap-2 justify-center mb-5">
-          <Button buttonName="Bulk Reminder" onClick={copyButton} className={"btn btn-success"}/>
+          {copied ? (
+            <Button buttonName="Copied!" onClick={copyButton} className={"btn btn-success"}/>
+          ) : (
+            <Button buttonName="Bulk Reminder" onClick={copyButton} className={"btn btn-success"}/>
+          )}
           <Button buttonName="Bulk Invoice" className={"btn btn-success"}/>
           <Button buttonName="Add Student" className={"btn btn-success"}/>
         </div>
