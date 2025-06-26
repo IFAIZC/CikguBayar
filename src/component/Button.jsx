@@ -1,5 +1,5 @@
-export default function Button({buttonName, className}) {
+export default function Button({buttonName, className, ...props}) {
   return (
-    <button className={className}>{buttonName}</button>
+    <button {...props} className={className}>{buttonName}</button>
   )
 }
