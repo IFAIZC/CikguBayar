@@ -43,7 +43,7 @@ If you have made the payment, please disregard this message. Thank you.
           ) : (
             <Button buttonName="Bulk Reminder" onClick={copyButton} className={"btn btn-success"}/>
           )}
-          <Button buttonName="Bulk Invoice" className={"btn btn-success"}/>
+          {/* <Button buttonName="Bulk Invoice" className={"btn btn-success"}/> */}
           <Button buttonName="Add Student" className={"btn btn-success"}/>
         </div>
         <Table/>
