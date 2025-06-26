@@ -4,12 +4,12 @@ import Button from "./Button"
 export default function Table() {
   return (
     <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-      <table className="table">
+      <table className="table relative">
         {/* head */}
         <thead>
           <tr>
-            <th></th>
-            <th>Name</th>
+            <th className="sticky left-0 z-20 bg-base-100">No.</th>
+            <th className="sticky left-12 z-20 bg-base-100">Name</th>
             <th>Class</th>
             <th>Fee</th>
             <th>Status</th>
@@ -19,11 +19,11 @@ export default function Table() {
             <th></th>
           </tr>
         </thead>
-        <tbody className="items-center justify-center ">
+        <tbody className="items-center justify-center">
           {/* row 1 */}
           <tr>
-            <th>1</th>
-            <td>Abu</td>
+            <th className="sticky left-0 z-20 bg-base-100">1</th>
+            <td className="sticky left-12 z-20 bg-base-100">Abu</td>
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
@@ -34,8 +34,8 @@ export default function Table() {
           </tr>
           {/* row 2 */}
           <tr>
-            <th>2</th>
-            <td>Harley</td>
+            <th className="sticky left-0 z-20 bg-base-100">2</th>
+            <td className="sticky left-12 z-20 bg-base-100">Harley</td>
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
@@ -46,8 +46,8 @@ export default function Table() {
           </tr>
           {/* row 3 */}
           <tr>
-            <th>3</th>
-            <td>Abe</td>
+            <th className="sticky left-0 z-20 bg-base-100">3</th>
+            <td className="sticky left-12 z-20 bg-base-100">Abe</td>
             <td>Math</td>
             <td>RM150</td>
             <td><Dropdown/></td>
@@ -57,8 +57,8 @@ export default function Table() {
             <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           <tr>
-            <th>4</th>
-            <td>Martin</td>
+            <th className="sticky left-0 z-20 bg-base-100">4</th>
+            <td className="sticky left-12 z-20 bg-base-100">Martin</td>
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
@@ -68,8 +68,8 @@ export default function Table() {
             <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           <tr>
-            <th>5</th>
-            <td>Cooper</td>
+            <th className="sticky left-0 z-20 bg-base-100">5</th>
+            <td className="sticky left-12 z-20 bg-base-100">Cooper</td>
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
@@ -79,8 +79,8 @@ export default function Table() {
             <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           <tr>
-            <th>6</th>
-            <td>Skrunch</td>
+            <th className="sticky left-0 z-20 bg-base-100">6</th>
+            <td className="sticky left-12 z-20 bg-base-100">Skrunch</td>
             <td>Computer Science</td>
             <td>RM400</td>
             <td><Dropdown/></td>
