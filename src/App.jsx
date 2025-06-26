@@ -61,8 +61,7 @@ If payment has already been made, please disregard this message. Thank you! 😊
           {/* Modal */}
           <input type="checkbox" id="my_modal_7" className="modal-toggle" />
           <div className="modal" role="dialog">
-            <div className="modal-box">
-              <div className="card bg-base-100 w-full max-w-sm shrink-0">
+            <div className="modal-box" style={{ maxWidth: "300px" }}>
                     <fieldset className="fieldset">
                       <label className="label">Student's Name</label>
                       <input type="text" className="input" placeholder="Student Name" />
@@ -72,7 +71,6 @@ If payment has already been made, please disregard this message. Thank you! 😊
                       <input type="text" className="input" placeholder="Total Fee" />
                       <button className="btn btn-neutral mt-4">Submit</button>
                     </fieldset>
-                </div>
               </div>
             <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
           </div>
