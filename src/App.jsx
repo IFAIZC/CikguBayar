@@ -30,16 +30,16 @@ If you have made the payment, please disregard this message. Thank you.
     // Hide notification after 1 seconds
     setTimeout(() => {
       setCopied(false);
-    }, 1000);
+    }, 2000);
   }
 
   return (
     <>
       <Navbar/>
       <div className="m-5">
-        <div className="flex flex-wrap flex-col gap-2 justify-center mb-5">
+        <div className="flex flex-wrap flex-col gap-2 justify-center mb-5 md:flex md:flex-row md:justify-start">
           {copied ? (
-            <Button buttonName="Copied!" onClick={copyButton} className={"btn btn-success"}/>
+            <Button buttonName="Copied!" onClick={copyButton} className={"btn btn-warning"}/>
           ) : (
             <Button buttonName="Bulk Reminder" onClick={copyButton} className={"btn btn-success"}/>
           )}
