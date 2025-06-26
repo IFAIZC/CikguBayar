@@ -9,7 +9,7 @@ function App() {
     <>
       <Navbar/>
       <div className="m-5">
-        <div className="flex flex-wrap gap-2 justify-center mb-5">
+        <div className="flex flex-wrap flex-col gap-2 justify-center mb-5">
           <Button buttonName="Bulk Reminder" className={"btn btn-success"}/>
           <Button buttonName="Bulk Invoice" className={"btn btn-success"}/>
           <Button buttonName="Add Student" className={"btn btn-success"}/>
