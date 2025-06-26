@@ -9,7 +9,7 @@ export default function Navbar() {
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-3">
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
