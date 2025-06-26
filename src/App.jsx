@@ -9,10 +9,11 @@ function App() {
     <>
       <Navbar/>
       <div className="m-5">
-        {/* <Button buttonName="Send Reminder"/>
-        <Button buttonName="Send Invoice"/>
-        <Button buttonName="Add Student"/>
-        <Button buttonName="Remove Student"/> */}
+        <div className="flex flex-wrap gap-2 justify-center mb-5">
+          <Button buttonName="Bulk Reminder" className={"btn btn-success"}/>
+          <Button buttonName="Bulk Invoice" className={"btn btn-success"}/>
+          <Button buttonName="Add Student" className={"btn btn-success"}/>
+        </div>
         <Table/>
       </div>
     </>

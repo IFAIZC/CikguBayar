@@ -27,10 +27,10 @@ export default function Table() {
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
-            <td><Button buttonName="Delete"/></td>
-            <td><Button buttonName="Update"/></td>
-            <td><Button buttonName="Remind"/></td>
-            <td><Button buttonName="Invoice"/></td>
+            <td><Button buttonName="Delete" className="btn btn-error"/></td>
+            <td><Button buttonName="Update"className="btn btn-soft btn-info"/></td>
+            <td><Button buttonName="Remind" className="btn btn-soft btn-success"/></td>
+            <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           {/* row 2 */}
           <tr>
@@ -39,10 +39,10 @@ export default function Table() {
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
-            <td><Button buttonName="Delete"/></td>
-            <td><Button buttonName="Update"/></td>
-            <td><Button buttonName="Remind"/></td>
-            <td><Button buttonName="Invoice"/></td>
+            <td><Button buttonName="Delete" className="btn btn-error"/></td>
+            <td><Button buttonName="Update" className="btn btn-soft btn-info"/></td>
+            <td><Button buttonName="Remind" className="btn btn-soft btn-success"/></td>
+            <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           {/* row 3 */}
           <tr>
@@ -51,10 +51,10 @@ export default function Table() {
             <td>Math</td>
             <td>RM150</td>
             <td><Dropdown/></td>
-            <td><Button buttonName="Delete"/></td>
-            <td><Button buttonName="Update"/></td>
-            <td><Button buttonName="Remind"/></td>
-            <td><Button buttonName="Invoice"/></td>
+            <td><Button buttonName="Delete" className="btn btn-error"/></td>
+            <td><Button buttonName="Update" className="btn btn-soft btn-info"/></td>
+            <td><Button buttonName="Remind" className="btn btn-soft btn-success"/></td>
+            <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           <tr>
             <th>4</th>
@@ -62,10 +62,10 @@ export default function Table() {
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
-            <td><Button buttonName="Delete"/></td>
-            <td><Button buttonName="Update"/></td>
-            <td><Button buttonName="Remind"/></td>
-            <td><Button buttonName="Invoice"/></td>
+            <td><Button buttonName="Delete" className="btn btn-error"/></td>
+            <td><Button buttonName="Update" className="btn btn-soft btn-info"/></td>
+            <td><Button buttonName="Remind" className="btn btn-soft btn-success"/></td>
+            <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           <tr>
             <th>5</th>
@@ -73,10 +73,10 @@ export default function Table() {
             <td>Science</td>
             <td>RM150</td>
             <td><Dropdown/></td>
-            <td><Button buttonName="Delete"/></td>
-            <td><Button buttonName="Update"/></td>
-            <td><Button buttonName="Remind"/></td>
-            <td><Button buttonName="Invoice"/></td>
+            <td><Button buttonName="Delete" className="btn btn-error"/></td>
+            <td><Button buttonName="Update"className="btn btn-soft btn-info"/></td>
+            <td><Button buttonName="Remind" className="btn btn-soft btn-success"/></td>
+            <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
           <tr>
             <th>6</th>
@@ -84,10 +84,10 @@ export default function Table() {
             <td>Computer Science</td>
             <td>RM400</td>
             <td><Dropdown/></td>
-            <td><Button buttonName="Delete"/></td>
-            <td><Button buttonName="Update"/></td>
-            <td><Button buttonName="Remind"/></td>
-            <td><Button buttonName="Invoice"/></td>
+            <td><Button buttonName="Delete" className="btn btn-error"/></td>
+            <td><Button buttonName="Update" className="btn btn-soft btn-info"/></td>
+            <td><Button buttonName="Remind" className="btn btn-soft btn-success"/></td>
+            <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
           </tr>
         </tbody>
       </table>
