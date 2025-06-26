@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Button from "./component/Button"
 import Navbar from "./component/Navbar"
 import Table from "./component/Table"
+import ModalStudent from './component/ModalStudent'
 
 function App() {
   const [copied, setCopied] = useState(false)
@@ -54,26 +55,7 @@ If payment has already been made, please disregard this message. Thank you! 😊
           ) : (
             <Button buttonName="Bulk Reminder" onClick={copyButton} className={"btn btn-success"}/>
           )}
-
-          {/* The button to open modal */}
-          <label htmlFor="my_modal_7" className={"btn btn-success"}>Add Student</label>
-
-          {/* Modal */}
-          <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-          <div className="modal" role="dialog">
-            <div className="modal-box" style={{ maxWidth: "300px" }}>
-                    <fieldset className="fieldset">
-                      <label className="label">Student's Name</label>
-                      <input type="text" className="input" placeholder="Student Name" />
-                      <label className="label">Class</label>
-                      <input type="text" className="input" placeholder="Class" />
-                      <label className="label">Fee</label>
-                      <input type="text" className="input" placeholder="Total Fee" />
-                      <button className="btn btn-neutral mt-4">Submit</button>
-                    </fieldset>
-              </div>
-            <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
-          </div>
+          <ModalStudent/>
         </div>
         <Table/>
       </div>
