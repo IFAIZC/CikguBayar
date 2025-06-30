@@ -56,13 +56,7 @@ If payment has already been made, please disregard this message. Thank you! 😊
             <Button buttonName="Bulk Reminder" onClick={copyButton} className={"btn btn-success"}/>
           )}
           <ModalStudent/>
-          <Button buttonName="Add Class" className={"btn btn-success"}/>
         </div>
-        <ul className="menu menu-horizontal lg:menu-horizontal bg-base-200 rounded-box gap-2">
-          <li><a className="btn btn-soft">Class 1</a></li>
-          <li><a className="btn btn-soft">Class 2</a></li>
-          <li><a className="btn btn-soft">Class 3</a></li>
-        </ul>
         <Table/>
       </div>
     </>

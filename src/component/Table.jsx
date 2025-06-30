@@ -30,7 +30,7 @@ export default function Table() {
               <th className="sticky left-12 z-20 bg-base-100">Name</th>
               <th>Class</th>
               <th>Fee</th>
-              <th>Status</th>
+              <th className="justify-center flex">Status</th>
               <th></th>
               <th></th>
               <th></th>
