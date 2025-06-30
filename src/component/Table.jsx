@@ -21,7 +21,7 @@ export default function Table() {
   return (
     <div className="rounded-box border border-base-content/5 bg-base-100">
       {/* Added a fixed height container with both horizontal and vertical scrolling */}
-      <div className="overflow-x-auto overflow-y-auto h-[calc(90vh-200px)]">
+      <div className="overflow-x-auto overflow-y-auto h-[calc(100vh-200px)]">
         <table className="table relative">
           {/* head - made sticky with top-0 */}
           <thead className="sticky -top-1 z-30 bg-base-100">

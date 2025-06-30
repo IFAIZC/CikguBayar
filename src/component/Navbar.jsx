@@ -16,7 +16,7 @@ export default function Navbar() {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-1 w-52 p-2 shadow">
-            <li><a>Logout</a></li>
+            <li><a className="text-base-content">Logout</a></li>
           </ul>
         </div>
       </div>
