@@ -1,23 +1,7 @@
-import { useState } from "react"
 import Dropdown from "./Dropdown"
 import Button from "./Button"
 
-export default function Table() {
-  // Sample data array to be mapped through
-  const [students, setStudents] = useState([
-    { id: 1, name: "Abu", class: "Science", fee: "RM150" },
-    { id: 2, name: "Harley", class: "Science", fee: "RM150" },
-    { id: 3, name: "Abe", class: "Math", fee: "RM150" },
-    { id: 4, name: "Martin", class: "Science", fee: "RM150" },
-    { id: 5, name: "Cooper", class: "Science", fee: "RM150" },
-    { id: 6, name: "Skrunch", class: "Computer Science", fee: "RM400" },
-    { id: 7, name: "Ali", class: "Computer Science", fee: "RM400" },
-    { id: 8, name: "Bunch", class: "Computer Science", fee: "RM130" },
-    { id: 9, name: "Lee Kang", class: "Computer Science", fee: "RM190" },
-    { id: 10, name: "Shin Jiz", class: "Computer Science", fee: "RM250" },
-    // Additional data rows from the original table are now handled by the map function
-  ]);
-
+export default function Table({ students, setStudents }) {
   return (
     <div className="rounded-box border border-base-content/5 bg-base-100">
       {/* Added a fixed height container with both horizontal and vertical scrolling */}
