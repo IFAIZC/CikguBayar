@@ -12,6 +12,7 @@ Web UI :
 <img width="1396" alt="Screenshot 2025-07-04 at 9 14 05 PM" src="https://github.com/user-attachments/assets/6c1f1a6e-c420-44ec-ac86-61a78864a8d8" />
 
 Mobile UI :
+
 <img width="344" alt="Screenshot 2025-07-04 at 9 21 06 PM" src="https://github.com/user-attachments/assets/2aa0e28f-bbe3-4b76-a5da-7ab8035e2456" />
 
 Before I build CikguPay, Here's my validation post.
