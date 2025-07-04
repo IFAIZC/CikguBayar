@@ -5,6 +5,7 @@ export default function ModalStudent() {
       <label htmlFor="my_modal_7" className="btn btn-success">Add Student</label>
 
       {/* Modal */}
+      {/* GOING TO INSERT DATA TO SUPABAE */}
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box" style={{ maxWidth: "300px" }}>
