@@ -1,12 +1,21 @@
-# React + Vite
+CikguPay – Built for Tuition Teachers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Problem:
+Many cikgu tuition/private tutors still rely on manual spreadsheets and WhatsApp to manage student payments. It’s time consuming, messy, and life gets in the way. Some even admitted they forgot to collect payments because they got too busy with classes and admin work.
 
-Currently, two official plugins are available:
+Solution:
+cikguPay was built with love and intention to simplify that process. With just one click, it copies a list of unpaid students directly to the clipboard. Teachers can instantly paste it into their WhatsApp group. No stress, no hunting through spreadsheets.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It's fast, simple, and made to help cikgus focus more on teaching, less on chasing payments. That's CikguPay!
 
-## Expanding the ESLint configuration
+Web UI :
+<img width="1396" alt="Screenshot 2025-07-04 at 9 14 05 PM" src="https://github.com/user-attachments/assets/6c1f1a6e-c420-44ec-ac86-61a78864a8d8" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Mobile UI :
+
+<img width="344" alt="Screenshot 2025-07-04 at 9 21 06 PM" src="https://github.com/user-attachments/assets/2aa0e28f-bbe3-4b76-a5da-7ab8035e2456" />
+
+Before I build CikguPay, Here's my validation post.
+<img width="668" alt="Screenshot 2025-07-04 at 9 22 07 PM" src="https://github.com/user-attachments/assets/80596e21-8205-4f64-bd5b-2c49010913a3" />
+
+*Need to talk more about it publicly to create more awareness and to have that validtion that it's worth it to build.
