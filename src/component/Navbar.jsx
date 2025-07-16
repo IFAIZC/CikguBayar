@@ -1,4 +1,17 @@
+import supabase from "../../supabaseClient"
+
 export default function Navbar() {
+
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Error signing out:', error);
+    } else {
+      // setSession(null); // Clear the session state
+      window.location.href = '*'; // Redirect to login page
+    }
+  };
+
   return (
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1">
@@ -16,7 +29,7 @@ export default function Navbar() {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-1 w-52 p-2 shadow">
-            <li><a className="text-base-content">Logout</a></li>
+            <li><a className="text-base-content" onClick={signOut}>Logout</a></li>
           </ul>
         </div>
       </div>

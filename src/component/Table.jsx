@@ -1,9 +1,33 @@
 import Dropdown from "./Dropdown"
 import Button from "./Button"
+import { useState , useEffect } from "react"
+import supabase from "../../supabaseClient";
 
-export default function Table({ students, setStudents }) {
+export default function Table() {
+
+  const [studentData,setStudentData] = useState([]);
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      // testing only
+      // use await supabase.auth() to fetch the current logged user ******
+    const { data, error } = await supabase
+        .from("student_info")
+        .select("*")
+        // .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Error fetching data:", error);
+      } else {
+        setStudentData(data);
+        console.log("Fetched student_info:", data);
+      }
+    };
+
+    fetchdata();
+  }, []);
+
   return (
-    // GOING TO FETCH DATA FROM SUPABASE *******
     <div className="rounded-box border border-base-content/5 bg-base-100">
       {/* Added a fixed height container with both horizontal and vertical scrolling */}
       <div className="overflow-x-auto overflow-y-auto h-[calc(100vh-200px)]">
@@ -23,11 +47,10 @@ export default function Table({ students, setStudents }) {
             </tr>
           </thead>
           <tbody className="items-center justify-center">
-            {/* Map through the students array to generate table rows */}
-            {students.map((student) => (
+            {studentData.map((student) => (
               <tr key={student.id}>
                 <th className="sticky -left-1 z-20 bg-base-100">{student.id}</th>
-                <td className="sticky left-12 z-20 bg-base-100">{student.name}</td>
+                <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td>
                 <td>{student.class}</td>
                 <td>{student.fee}</td>
                 <td><Dropdown/></td>
