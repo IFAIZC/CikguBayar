@@ -9,7 +9,7 @@ export default function Dashboard() {
       <Navbar/>
       <div className="m-5">
         <div className="flex flex-wrap flex-row gap-3 justify-start mb-5 md:flex md:flex-row md:justify-start">
-            <Button buttonName="Bulk Reminder" className={"btn btn-success"}/>
+          <Button buttonName="Bulk Reminder" className={"btn btn-success"}/>
           <ModalStudent/>
         </div>
         <Table/>

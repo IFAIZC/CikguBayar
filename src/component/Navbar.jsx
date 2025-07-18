@@ -16,7 +16,7 @@ export default function Navbar() {
   };
 
     useEffect(() => {
-      const fetchPic = async () => {
+      const fetchName = async () => {
         const { data: { user }, error } = await supabase.auth.getUser();
 
         if (error) {
@@ -28,7 +28,7 @@ export default function Navbar() {
         setUsername(getName); // 🔁 Update state, triggers re-render
       };
 
-      fetchPic(); // ⏱️ Run once when component mounts
+      fetchName(); // ⏱️ Run once when component mounts
     }, []);
 
   return (
