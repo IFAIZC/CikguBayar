@@ -33,7 +33,7 @@ export default function ModalStudent() {
     setFee('');
     setContactNumber('');
     console.log('Student created', data);
-    // window.location.href = '/dashboard'; // use this to redirect after a successful log!
+    window.location.href = '/dashboard'; //to redirect/refresh the page once submit.
     }
   };
 

@@ -2,6 +2,7 @@ import Dropdown from "./Dropdown"
 import Button from "./Button"
 import { useState , useEffect } from "react"
 import supabase from "../../supabaseClient";
+import Toggle from "./Toggle";
 
 export default function Table() {
 
@@ -11,7 +12,7 @@ export default function Table() {
     const fetchdata = async () => {
       // use await supabase.auth() to fetch the current logged user ******
     const { data, error } = await supabase
-        .from("student_info")
+        .from("student")
         .select("*")
 
       if (error) {
@@ -37,7 +38,7 @@ export default function Table() {
               <th className="sticky left-12 z-20 bg-base-100">Name</th>
               <th>Class</th>
               <th>Fee</th>
-              <th className="justify-start ml-5 flex">Status</th>
+              <th className="justify-start  flex">Status</th>
               <th></th>
               <th></th>
               <th></th>
@@ -45,13 +46,13 @@ export default function Table() {
             </tr>
           </thead>
           <tbody className="items-center justify-center">
-            {studentData.map((student) => (
+            {studentData.map((student,index) => (
               <tr key={student.id}>
-                <th className="sticky -left-1 z-20 bg-base-100">{student.id}</th>
+                <th className="sticky -left-1 z-20 bg-base-100">{index+1}</th>
                 <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td>
                 <td>{student.class}</td>
                 <td>{student.fee}</td>
-                <td><Dropdown/></td>
+                <td><Toggle/></td>
 
                 {/* GOING TO MAKE ALL THESE BUTTON FUNCTIONAL ONCE SUPABSE IS LIVE */}
                 <td><Button buttonName="Delete" className="btn btn-error"/></td>
