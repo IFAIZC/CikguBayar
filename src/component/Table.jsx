@@ -9,12 +9,10 @@ export default function Table() {
 
   useEffect(() => {
     const fetchdata = async () => {
-      // testing only
       // use await supabase.auth() to fetch the current logged user ******
     const { data, error } = await supabase
         .from("student_info")
         .select("*")
-        // .order("created_at", { ascending: false });
 
       if (error) {
         console.error("Error fetching data:", error);

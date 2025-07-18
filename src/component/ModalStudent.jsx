@@ -1,11 +1,8 @@
 export default function ModalStudent() {
   return(
     <>
-      {/* The button to open modal */}
       <label htmlFor="my_modal_7" className="btn btn-success">Add Student</label>
 
-      {/* Modal */}
-      {/* GOING TO INSERT DATA TO SUPABASE - 14/7/2025 */} 
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box" style={{ maxWidth: "300px" }}>
