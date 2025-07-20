@@ -39,8 +39,8 @@ export default function Table() {
             <tr>
               <th className="sticky -left-1 z-20 bg-base-100">No.</th>
               <th className="sticky left-12 z-20 bg-base-100">Name</th>
-              <th>Class</th>
-              <th>Fee</th>
+              <th className="text-center">Class</th>
+              <th className="text-center">Fee</th>
               <th className="text-center">Status</th>
               <th className="text-center">Delete</th>
               <th className="text-center">Edit</th>
@@ -74,8 +74,8 @@ export default function Table() {
                 <tr key={student.id}>
                   <th className="sticky -left-1 z-20 bg-base-100">{index+1}</th>
                   <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td>
-                  <td>{student.class}</td>
-                  <td>{student.fee}</td>
+                  <td className="text-center">{student.class}</td>
+                  <td className="text-center">{student.fee}</td>
                   <td>
                     <div className="flex justify-center">
                       <Toggle/>
