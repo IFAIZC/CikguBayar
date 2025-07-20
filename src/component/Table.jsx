@@ -28,8 +28,9 @@ export default function Table() {
     fetchdata();
   }, []);
 
+  // to change bg-base-100 for line 33!
   return (
-    <div className="rounded-box border border-base-content/5 bg-base-100">
+    <div className="rounded-box border border-base-content/5 bg-base-100"> 
       {/* Added a fixed height container with both horizontal and vertical scrolling */}
       <div className="overflow-x-auto overflow-y-auto h-[calc(100vh-200px)]">
         <table className="table relative">
@@ -40,11 +41,11 @@ export default function Table() {
               <th className="sticky left-12 z-20 bg-base-100">Name</th>
               <th>Class</th>
               <th>Fee</th>
-              <th className="justify-start  flex">Status</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <th className="text-center">Status</th>
+              <th className="text-center">Delete</th>
+              <th className="text-center">Edit</th>
+              <th className="text-center">Remind</th>
+              <th className="text-center">Invoice</th>
             </tr>
           </thead>
 
@@ -75,13 +76,33 @@ export default function Table() {
                   <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td>
                   <td>{student.class}</td>
                   <td>{student.fee}</td>
-                  <td><Toggle/></td>
+                  <td>
+                    <div className="flex justify-center">
+                      <Toggle/>
+                    </div>
+                  </td>
 
                   {/* GOING TO MAKE ALL THESE BUTTON FUNCTIONAL ONCE SUPABSE IS LIVE */}
-                  <td><Button buttonName="Delete" className="btn btn-error"/></td>
-                  <td><Button buttonName="Edit" className="btn btn-soft btn-info"/></td>
-                  <td><Button buttonName="Remind" className="btn btn-soft btn-warning"/></td>
-                  <td><Button buttonName="Invoice" className="btn btn-soft btn-success"/></td>
+                  <td>
+                    <div className="flex justify-center">
+                      <Button buttonName="Delete" className="btn btn-error"/>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <Button buttonName="Edit" className="btn btn-soft btn-info"/>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <Button buttonName="Remind" className="btn btn-soft btn-warning"/>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <Button buttonName="Invoice" className="btn btn-soft btn-success"/>
+                    </div>
+                  </td>
                 </tr>
               ))
             )}
