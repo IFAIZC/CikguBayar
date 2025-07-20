@@ -3,9 +3,10 @@ import supabase from "../../supabaseClient";
 import { useNavigate } from "react-router";
 
 export default function Navbar() {
-  const [username, setUsername] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
   const navigate = useNavigate();
 
+  // signOut function
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
@@ -15,21 +16,23 @@ export default function Navbar() {
     }
   };
 
-    useEffect(() => {
-      const fetchName = async () => {
-        const { data: { user }, error } = await supabase.auth.getUser();
+  // fetch data function
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const { data: { user }, error } = await supabase.auth.getUser();
 
-        if (error) {
-          console.error("Error fetching user:", error.message);
-          return;
-        }
+      if (error) {
+        console.error("Error fetching user:", error.message);
+        return;
+      }
 
-        const getName = user?.user_metadata?.name
-        setUsername(getName); // 🔁 Update state, triggers re-render
-      };
+      const getPicture = user?.user_metadata?.avatar_url || user?.user_metadata?.picture
+      
+      setProfilePicture(getPicture);
+    };
 
-      fetchName(); // ⏱️ Run once when component mounts
-    }, []);
+    fetchUserData(); // run once when component mounts
+  }, []);
 
   return (
     <div className="navbar bg-primary text-primary-content">
@@ -38,15 +41,15 @@ export default function Navbar() {
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
-          <p tabIndex={0} role="button" className="font-bold text-md">Welcome back, {username} !</p>
-
-          {/* <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-1">
-            <div className="w-10 rounded-full">
-              <img
-                alt="User profile picture"
-                src={profilePicture || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
+          <div className="flex items-center gap-3">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-1">
+              <div className="w-10 rounded-full bg-white">
+                <img
+                  alt="User profile picture"
+                  src={profilePicture || "/user_profile.svg"} />
+              </div>
             </div>
-          </div> */}
+          </div>
 
           <ul
             tabIndex={0}
