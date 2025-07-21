@@ -11,16 +11,22 @@ export default function Table() {
 
   useEffect(() => {
     const fetchdata = async () => {
-    const { data, error } = await supabase
+    const {data:{user}, error} = await supabase.auth.getUser(); // added auth.getUser to fetch the user.id students only!
+    const { data: userData, error: userError } = await supabase
         .from("student")
         .select("*")
-
+        .eq("user_id", user.id)
+      
       if (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching user:", error)
+      }
+
+      if (userError) {
+        console.error("Error fetching data:", userError);
       } else {
-        setStudentData(data);
+        setStudentData(userData);
         setLoading(false)
-        console.log("Fetched student_info:", data);
+        console.log("Fetched student_info:", userData);
       }
 
     };
@@ -28,7 +34,7 @@ export default function Table() {
     fetchdata();
   }, []);
 
-  // to change bg-base-100 for line 33!
+
   return (
     <div className="rounded-box border border-base-content/5 bg-base-100"> 
       {/* Added a fixed height container with both horizontal and vertical scrolling */}
@@ -82,7 +88,7 @@ export default function Table() {
                     </div>
                   </td>
 
-                  {/* GOING TO MAKE ALL THESE BUTTON FUNCTIONAL ONCE SUPABSE IS LIVE */}
+                  {/* to make delete button functional soon! 20/7/2025 - today */}
                   <td>
                     <div className="flex justify-center">
                       <Button buttonName="Delete" className="btn btn-error"/>
