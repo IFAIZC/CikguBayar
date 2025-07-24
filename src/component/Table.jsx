@@ -11,7 +11,7 @@ export default function Table() {
 
   useEffect(() => {
     const fetchdata = async () => {
-    const {data:{user}, error} = await supabase.auth.getUser(); // added auth.getUser to fetch the user.id students only!
+    const {data:{user}, error} = await supabase.auth.getUser(); // added auth.getUser to fetch the user.id students
     const { data: userData, error: userError } = await supabase
         .from("student")
         .select("*")
@@ -43,22 +43,35 @@ export default function Table() {
           {/* head - made sticky with top-0 */}
           <thead className="sticky -top-1 z-30 bg-base-100">
             <tr>
-              <th className="sticky -left-1 z-20 bg-base-100">No.</th>
-              <th className="sticky left-12 z-20 bg-base-100">Name</th>
-              <th className="text-center">Class</th>
-              <th className="text-center">Fee</th>
-              <th className="text-center">Status</th>
-              <th className="text-center">Delete</th>
+              <th className="sticky -left-1 z-20 min-w-20 bg-base-100">No.</th>
+              <th className="sticky left-12 z-20 min-w-20 bg-base-100">Name</th>
+              <th className="text-center min-w-30">Grade</th>
+              <th className="text-center min-w-30">Fee</th>
+              {/*  */}
+              <th className="text-center min-w-30">January</th>
+              <th className="text-center min-w-30">February</th>
+              <th className="text-center min-w-30">March</th>
+              <th className="text-center min-w-30">April</th>
+              <th className="text-center min-w-30">May</th>
+              <th className="text-center min-w-30">June</th>
+              <th className="text-center min-w-30">July</th>
+              <th className="text-center min-w-30">August</th>
+              <th className="text-center min-w-30">September</th>
+              <th className="text-center min-w-30">November</th>
+              <th className="text-center min-w-30">October</th>
+              <th className="text-center min-w-30">December</th>
+              {/*  */}
+              {/* <th className="text-center">Delete</th>
               <th className="text-center">Edit</th>
               <th className="text-center">Remind</th>
-              <th className="text-center">Invoice</th>
+              <th className="text-center">Invoice</th> */}
             </tr>
           </thead>
 
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan="9" className="text-center py-20">
+                <td colSpan="17" className="text-center py-20">
                   <div className="flex flex-col items-center justify-center min-h-80">
                     <span className="loading loading-spinner loading-lg"></span>
                     <p className="mt-4 text-base-content/70">Loading students...</p>
@@ -67,7 +80,7 @@ export default function Table() {
               </tr>
             ) : studentData.length === 0 ? (
               <tr>
-                <td colSpan="9" className="text-center py-20">
+                <td colSpan="17" className="text-center py-20">
                   <div className="flex flex-col items-center justify-center min-h-80">
                     <div className="text-6xl mb-4">📚</div>
                     <p className="text-lg font-medium text-base-content/70">No students found</p>
@@ -82,31 +95,66 @@ export default function Table() {
                   <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td>
                   <td className="text-center">{student.class}</td>
                   <td className="text-center">{student.fee}</td>
-                  <td>
-                    <div className="flex justify-center">
-                      <Toggle/>
-                    </div>
-                  </td>
 
-                  {/* to make delete button functional soon! 20/7/2025 - today */}
+                  {/* Monthly payment checkboxes */}
                   <td>
                     <div className="flex justify-center">
-                      <Button buttonName="Delete" className="btn btn-error"/>
+                      <input type="checkbox" className="checkbox checkbox-primary" />
                     </div>
                   </td>
                   <td>
                     <div className="flex justify-center">
-                      <Button buttonName="Edit" className="btn btn-soft btn-info"/>
+                      <input type="checkbox" className="checkbox checkbox-primary" />
                     </div>
                   </td>
                   <td>
                     <div className="flex justify-center">
-                      <Button buttonName="Remind" className="btn btn-soft btn-warning"/>
+                      <input type="checkbox" className="checkbox checkbox-primary" />
                     </div>
                   </td>
                   <td>
                     <div className="flex justify-center">
-                      <Button buttonName="Invoice" className="btn btn-soft btn-success"/>
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-center">
+                      <input type="checkbox" className="checkbox checkbox-primary" />
                     </div>
                   </td>
                 </tr>

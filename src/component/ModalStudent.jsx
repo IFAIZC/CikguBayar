@@ -61,8 +61,8 @@ export default function ModalStudent() {
                 <fieldset className="fieldset">
                   <label className="label">Student's Name</label>
                   <input type="text" className="input mb-3" placeholder="Student Name" value={studentName} onChange={submitName}/>
-                  <label className="label">Subject</label>
-                  <input type="text" className="input mb-3" placeholder="Subject" value={className} onChange={submitClassName} />
+                  <label className="label">Grade</label>
+                  <input type="text" className="input mb-3" placeholder="Grade" value={className} onChange={submitClassName} />
                   <label className="label">Fee</label>
                   <input type="number" className="input mb-3" placeholder="Total Fee" value={fee} onChange={submitFee}/>
                   <label className="label">Parent's Contact Number</label>
