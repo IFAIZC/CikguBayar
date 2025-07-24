@@ -3,6 +3,7 @@ import Button from "./Button"
 import { useState , useEffect } from "react"
 import supabase from "../../supabaseClient";
 import Toggle from "./Toggle";
+import Checkbox from "./Checkbox";
 
 export default function Table() {
 
@@ -28,12 +29,19 @@ export default function Table() {
         setLoading(false)
         console.log("Fetched student_info:", userData);
       }
-
     };
-
     fetchdata();
   }, []);
 
+  // useEffect(() => {
+  //   const updatePayment = async () => {
+  //     const {data,error} = await supabase
+  //       .from()
+  //   }
+  // })
+
+  // already setup supabase table for paymnet
+  // to link up the checkboxes value to backend once click via onChange. 25/7/2025
 
   return (
     <div className="rounded-box border border-base-content/5 bg-base-100"> 
@@ -98,64 +106,40 @@ export default function Table() {
 
                   {/* Monthly payment checkboxes */}
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                   <td>
-                    <div className="flex justify-center">
-                      <input type="checkbox" className="checkbox checkbox-primary" />
-                    </div>
+                    <Checkbox/>
                   </td>
                 </tr>
               ))
