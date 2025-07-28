@@ -13,6 +13,7 @@
     "@supabase/supabase-js": "^2.51.0",
     "@tailwindcss/vite": "^4.1.10",
     "daisyui": "^5.0.43",
+    "lucide-react": "^0.528.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.3",

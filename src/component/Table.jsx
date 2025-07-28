@@ -1,7 +1,6 @@
 import { useState , useEffect } from "react"
 import supabase from "../../supabaseClient";
 import Checkbox from "./Checkbox";
-import Dropdown from "./Dropdown";
 
 export default function Table() {
 
@@ -41,7 +40,7 @@ export default function Table() {
             <tr>
               <th className="sticky -left-1 z-20 min-w-20 bg-base-100">No.</th>
               <th className="sticky left-12 z-20 min-w-20 bg-base-100">Name</th>
-              <th className="text-center min-w-30">Grade</th>
+              <th className="min-w-30">Grade</th>
               <th className="text-center min-w-30">Fee</th>
               {/*  */}
               <th className="text-center min-w-30">January</th>
@@ -89,12 +88,11 @@ export default function Table() {
                 <tr key={student.id}>
                   <th className="sticky -left-1 z-20 bg-base-100">{index+1}</th>
                   <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td>
-                  <td className="text-center">{student.class}</td>
+                  <td className="">{student.class}</td>
                   <td className="text-center">{student.fee}</td>
 
                   {/* Monthly payment checkboxes */}
                   <td>
-                    {/* <Dropdown/> */}
                     <Checkbox/>
                   </td>
                   <td>

@@ -1,45 +1,40 @@
-import { useState } from "react";
 import supabase from "../../supabaseClient";
+import { useState } from "react";
+import { ReceiptText } from "lucide-react";
 
-export default function Checkbox({ studentId, month, initialPaid }) {
-  // const [checked, setChecked] = useState(initialPaid);
+export default function Checkbox() {
 
-  // const handleChange = async (e) => {
-  //   const newValue = e.target.checked;
-  //   setChecked(newValue);
+  // My goal :
+  // checkbox is disabled
+  // receipt insert button beside checkboxe
+  // once user INSERT a file , state from false to true.
+  // checkboxes will CHECKED once detected a file > 1 is inserted
 
-  //   const { error } = await supabase
-  //     .from("payment") // adjust if you use a separate table
-  //     .insert({ [month]: newValue }) // dynamic column name
-  //     .eq("id", studentId);
-
-  //   if (error) {
-  //     console.error("Failed to update payment:", error.message);
-  //     setChecked(!newValue); // rollback if needed
-  //   }
-  // };
-
-  // const [checked, setChecked] = useState(false)
-
-  async function updateStatus() {
-    const {error} = await supabase
-    .from("payment")
-    .insert([{
-      january:true,
-    }])
-
-    if (error) {
-      console.log("Updating payment status is unsuccessful", error)
-    }
-  }
+  const [payment, setPayment] = useState(false)
 
   return (
     <div className="flex justify-center">
-      <input
+      {payment ? 
+      <div className="flex flex-row gap-2">
+        <input
         type="checkbox"
-        onChange={updateStatus}
+        // onChange={checkPayment}
         className="checkbox checkbox-success"
+        disabled defaultChecked
       />
+      <ReceiptText className="opacity-90" color="gray"/>
+      </div>
+      : 
+      <div className="flex flex-row gap-2">
+        <input
+        type="checkbox"
+        // onChange={checkPayment}
+        className="checkbox checkbox-success"
+        disabled
+        />
+        <ReceiptText className="opacity-90" color="gray"/>
+      </div>
+      }
     </div>
   );
 }
