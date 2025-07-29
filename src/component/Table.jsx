@@ -6,29 +6,62 @@ export default function Table() {
 
   const [studentData,setStudentData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [studentPayments,setStudentPayments] = useState({})
 
   useEffect(() => {
-    const fetchdata = async () => {
-    const {data:{user}, error} = await supabase.auth.getUser(); // added auth.getUser to fetch the user.id students
-    const { data: userData, error: userError } = await supabase
-        .from("student")
-        .select("*")
-        .eq("user_id", user.id)
-      
-      if (error) {
-        console.error("Error fetching user:", error)
-      }
+    const fetchData = async () => {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
 
       if (userError) {
-        console.error("Error fetching data:", userError);
-      } else {
-        setStudentData(userData);
-        setLoading(false)
-        console.log("Fetched student_info:", userData);
+        console.error("Error fetching user:", userError);
+        return;
       }
+
+      // Fetch students
+      const { data: userData, error: studentError } = await supabase
+        .from("student")
+        .select("*")
+        .eq("user_id", user.id);
+
+      if (studentError) {
+        console.error("Error fetching students:", studentError);
+        return;
+      }
+
+      setStudentData(userData);
+
+      // Get all student IDs
+      const studentIds = userData.map((s) => s.id);
+
+      // Fetch payment records
+      const { data: payments, error: paymentError } = await supabase
+        .from("payment")
+        .select("*")
+        .in("student_id", studentIds);
+
+      if (paymentError) {
+        console.error("Error fetching payments:", paymentError);
+      } else {
+        // Organize payment data by student and month
+        // ***to study this and why this was coded like this***
+        const paymentMap = {};
+
+        payments.forEach(payment => {
+          if (!paymentMap[payment.student_id]) {
+            paymentMap[payment.student_id] = {};
+          }
+          paymentMap[payment.student_id][payment.month] = payment;
+        });
+
+        setStudentPayments(paymentMap);
+      }
+
+      setLoading(false);
     };
-    fetchdata();
+
+    fetchData();
   }, []);
+
 
   return (
     <div className="rounded-box border border-base-content/5 bg-base-100"> 
@@ -93,40 +126,88 @@ export default function Table() {
 
                   {/* Monthly payment checkboxes */}
                   <td>
-                    <Checkbox/>
+                    {/* jan */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="january" 
+                    receipt={studentPayments?.[student.id]?.["january"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* feb */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="february" 
+                    receipt={studentPayments?.[student.id]?.["february"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* march */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="march" 
+                    receipt={studentPayments?.[student.id]?.["march"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* april */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="april" 
+                    receipt={studentPayments?.[student.id]?.["april"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* may */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="may" 
+                    receipt={studentPayments?.[student.id]?.["may"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* june */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="june" 
+                    receipt={studentPayments?.[student.id]?.["june"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* july */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="july" 
+                    receipt={studentPayments?.[student.id]?.["july"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* august */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="august" 
+                    receipt={studentPayments?.[student.id]?.["august"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* september */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="september" 
+                    receipt={studentPayments?.[student.id]?.["september"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* november */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="november" 
+                    receipt={studentPayments?.[student.id]?.["november"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* oct */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="october" 
+                    receipt={studentPayments?.[student.id]?.["october"]}/>
                   </td>
                   <td>
-                    <Checkbox/>
+                    {/* december */}
+                    <Checkbox 
+                    student_id={student.id} 
+                    month="december" 
+                    receipt={studentPayments?.[student.id]?.["december"]}/>
                   </td>
                 </tr>
               ))
