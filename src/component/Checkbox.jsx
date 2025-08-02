@@ -1,69 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ReceiptText } from "lucide-react";
 import supabase from "../../supabaseClient";
 
 export default function Checkbox({ studentId, month, receipt }) {
-  const [payment, setPayment] = useState(receipt ? 1 : 0);
+  const [payment, setPayment] = useState(0);
   const [uploading, setUploading] = useState(false);
 
-  const handleUpload = async (e) => {
+  async function handleUpload(e) {
     const file = e.target.files[0];
     if (!file) return;
 
     setUploading(true);
 
-    const filePath = `${studentId}/${month}-${file.name}`;
+    const filePath = `${studentId}/${month}/${file.name}`;
 
-    // Upload file to Supabase Storage
-    const { data, error: uploadError } = await supabase.storage
+    // Upload file
+    const { data: uploadData, error: uploadError } = await supabase.storage
       .from("receipts")
-      .upload(filePath, file, {
-        cacheControl: "3600",
-        upsert: false,
-      });
+      .upload(filePath, file);
 
     if (uploadError) {
-      alert("Upload failed!");
-      console.error(uploadError);
+      console.error("Upload failed:", uploadError.message);
       setUploading(false);
       return;
     }
 
-    // Get public URL of the file
-    const { data: urlData } = supabase.storage
-      .from("receipts")
-      .getPublicUrl(filePath);
-
-    const receiptUrl = urlData.publicUrl;
-
-    // Insert new row into payment table
-    const { error: insertError } = await supabase
-      .from("payment")
-      .insert({
-        student_id: studentId,
-        month: month,
-        receipt_url: receiptUrl,
-      });
-
-    if (insertError) {
-      alert("Failed to save receipt to database");
-      console.error(insertError);
-    } else {
-      setPayment(1); // ✅ Mark checkbox as checked
-    }
-
+    // Upload successful
+    setPayment(1);
     setUploading(false);
-  };
+  }
 
   return (
     <div className="flex justify-center items-center gap-2">
+      {payment === 1 ?
       <input
         type="checkbox"
         className="checkbox checkbox-success"
         disabled
-        checked={payment >= 1}
+        checked
+      /> : 
+      <input
+        type="checkbox"
+        className="checkbox checkbox-success"
+        disabled
       />
-      <label className="cursor-pointer">
+    }
+      
+      <label className="cursor-pointer relative">
         <input
           type="file"
           accept="application/pdf,image/*"
@@ -71,12 +54,15 @@ export default function Checkbox({ studentId, month, receipt }) {
           className="hidden"
         />
         <ReceiptText
-          className={payment >= 1 ? "opacity-100" : "opacity-60"}
+          className={`transition-opacity ${payment >= 1 ? "opacity-100" : "opacity-60"}`}
           color={payment >= 1 ? "green" : "gray"}
         />
+        {uploading && (
+          <span className="absolute text-xs text-gray-500 -bottom-5 left-1/2 -translate-x-1/2">
+            uploading...
+          </span>
+        )}
       </label>
-
-      {uploading && <span className="loading loading-spinner loading-xs"></span>}
     </div>
   );
 }
