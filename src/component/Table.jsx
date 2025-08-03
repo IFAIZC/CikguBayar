@@ -30,31 +30,31 @@ export default function Table() {
 
       setStudentData(userData);
 
-      // Get all student IDs
-      const studentIds = userData.map((s) => s.id);
+      // // Get all student IDs
+      // const studentIds = userData.map((s) => s.id);
 
-      // Fetch payment records
-      const { data: payments, error: paymentError } = await supabase
-        .from("payment")
-        .select("*")
-        .in("student_id", studentIds);
+      // // Fetch payment records
+      // const { data: payments, error: paymentError } = await supabase
+      //   .from("payment")
+      //   .select("*")
+      //   .in("student_id", studentIds);
 
-      if (paymentError) {
-        console.error("Error fetching payments:", paymentError);
-      } else {
-        // Organize payment data by student and month
-        // ***to study this and why this was coded like this***
-        const paymentMap = {};
+      // if (paymentError) {
+      //   console.error("Error fetching payments:", paymentError);
+      // } else {
+      //   // Organize payment data by student and month
+      //   // ***to study this and why this was coded like this***
+      //   const paymentMap = {};
 
-        payments.forEach(payment => {
-          if (!paymentMap[payment.student_id]) {
-            paymentMap[payment.student_id] = {};
-          }
-          paymentMap[payment.student_id][payment.month] = payment;
-        });
+      //   payments.forEach(payment => {
+      //     if (!paymentMap[payment.student_id]) {
+      //       paymentMap[payment.student_id] = {};
+      //     }
+      //     paymentMap[payment.student_id][payment.month] = payment;
+      //   });
 
-        setStudentPayments(paymentMap);
-      }
+      //   setStudentPayments(paymentMap);
+      // }
 
       setLoading(false);
     };
@@ -128,84 +128,84 @@ export default function Table() {
                   <td>
                     {/* jan */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="january" 
                     receipt={studentPayments?.[student.id]?.["january"]}/>
                   </td>
                   <td>
                     {/* feb */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="february" 
                     receipt={studentPayments?.[student.id]?.["february"]}/>
                   </td>
                   <td>
                     {/* march */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="march" 
                     receipt={studentPayments?.[student.id]?.["march"]}/>
                   </td>
                   <td>
                     {/* april */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="april" 
                     receipt={studentPayments?.[student.id]?.["april"]}/>
                   </td>
                   <td>
                     {/* may */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="may" 
                     receipt={studentPayments?.[student.id]?.["may"]}/>
                   </td>
                   <td>
                     {/* june */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="june" 
                     receipt={studentPayments?.[student.id]?.["june"]}/>
                   </td>
                   <td>
                     {/* july */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="july" 
                     receipt={studentPayments?.[student.id]?.["july"]}/>
                   </td>
                   <td>
                     {/* august */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="august" 
                     receipt={studentPayments?.[student.id]?.["august"]}/>
                   </td>
                   <td>
                     {/* september */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="september" 
                     receipt={studentPayments?.[student.id]?.["september"]}/>
                   </td>
                   <td>
                     {/* november */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="november" 
                     receipt={studentPayments?.[student.id]?.["november"]}/>
                   </td>
                   <td>
                     {/* oct */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="october" 
                     receipt={studentPayments?.[student.id]?.["october"]}/>
                   </td>
                   <td>
                     {/* december */}
                     <Checkbox 
-                    student_id={student.id} 
+                    student_name={student.student_name}
                     month="december" 
                     receipt={studentPayments?.[student.id]?.["december"]}/>
                   </td>
