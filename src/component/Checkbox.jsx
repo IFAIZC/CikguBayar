@@ -1,9 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ReceiptText } from "lucide-react";
 import supabase from "../../supabaseClient";
 
 export default function Checkbox({ student_name, month }) {
   const [uploading, setUploading] = useState(false);
+  const [receiptExists, setReceiptExists] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // we write this outside of useEffect, so we can re-use it under useEffect later
+  // this async function fetch data from receipts, to check if student and month name has paid
+  // if paid, checked the box, else, remain unchecked.
+  async function checkReceipt() {
+    const { data, error } = await supabase
+      .from("receipts")
+      .select("*")
+      .eq("student_name", student_name)
+      .eq("month", month)
+      .maybeSingle();
+
+    // edge case, if error, show this error to debug it easier.
+    if (error) {
+      console.error("Error fetching receipts:", error);
+    }
+
+    // if we got the data, pass the data to setReceiptExists, so that we can use receiptExists later on to toggle true or false.
+    if (data) {
+      setReceiptExists(true);
+    } else {
+      setReceiptExists(false); // ensure it's reset if not found
+    }
+
+    // if i have loading animation, this will toggle 
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    // calling out checkreceipt function under useEffect. so that this will run AFTER the component mounted.
+    checkReceipt();
+  }, [student_name, month]);
 
   async function handleUpload(event) {
     const file = event.target.files[0];
@@ -11,8 +45,7 @@ export default function Checkbox({ student_name, month }) {
 
     setUploading(true);
 
-    // Get the current logged-in user
-    const {data: { user }, error: userError} = await supabase.auth.getUser();
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
 
     if (userError || !user) {
       console.log("Fetching user failed:", userError?.message || "No user found");
@@ -20,9 +53,8 @@ export default function Checkbox({ student_name, month }) {
       return;
     }
 
-    const filePath = `user-${user.id}/${Date.now()}-${file.name}`;
+    const filePath = `${student_name}-${month}-user-${user.id}/${Date.now()}-${file.name}`;
 
-    // Upload the file to Supabase Storage
     const { data, error } = await supabase.storage
       .from("receipts")
       .upload(filePath, file);
@@ -33,25 +65,34 @@ export default function Checkbox({ student_name, month }) {
       return;
     }
 
-    console.log("Uploaded file:", data.path);
-
-    // Optionally, save metadata to your `receipts` table
     const { error: dbError } = await supabase.from("receipts").insert({
       user_id: user.id,
-      student_name: student_name, // if you're tracking student per receipt
+      student_name: student_name,
       month: month,
       file_path: data.path
     });
 
     if (dbError) {
       console.error("Saving receipt info failed:", dbError.message);
+      setUploading(false);
+      return;
     }
+
+    // ✅ Recheck the receipt immediately after uploading
+    await checkReceipt();
 
     setUploading(false);
   }
 
   return (
     <div className="flex justify-center items-center gap-2">
+      <input
+        type="checkbox"
+        className="checkbox checkbox-success"
+        disabled={!receiptExists} //if false, remain disabled/unchecked
+        checked={receiptExists} //if true, checked
+        readOnly
+      />
       <label className="cursor-pointer relative">
         <input
           type="file"
