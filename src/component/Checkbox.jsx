@@ -102,6 +102,9 @@ export default function Checkbox({ student_name, month }) {
           className="hidden"
         />
         <ReceiptText className={uploading ? "opacity-50" : ""} />
+        {/* add reminder button */}
+        {/* add function to reminder */}
+        {/* to plan the flow 8th Aug 2025*/}
       </label>
     </div>
   );
