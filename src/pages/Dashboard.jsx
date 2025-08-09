@@ -2,6 +2,7 @@ import Navbar from "../component/Navbar"
 import Table from "../component/Table"
 import ModalStudent from '../component/ModalStudent'
 import Button from "../component/Button"
+import Practice from "../component/Practice"
 
 export default function Dashboard() {
   return (
@@ -14,6 +15,7 @@ export default function Dashboard() {
         </div>
         <Table/>
       </div>
+      <Practice/>
     </div>
   )
 }
