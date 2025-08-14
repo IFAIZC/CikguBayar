@@ -62,7 +62,6 @@ export default function Table() {
     fetchData();
   }, []);
 
-
   return (
     <div className="rounded-box border border-base-content/5 bg-base-100"> 
       {/* Added a fixed height container with both horizontal and vertical scrolling */}
