@@ -9,11 +9,12 @@ export default function YearDropDown() {
 
   function selectYear(year) {
     setCurrentYear(year);
+    console.log(`You selected ${year}!`) //to check if it works.
   }
 
   return (
-    <div className="dropdown dropdown-hover btn-secondary">
-      <div tabIndex={0} role="button" className="btn min-w-25">
+    <div className="dropdown dropdown-hover">
+      <div tabIndex={0} role="button" className="btn btn-success min-w-25 ">
         {currentYear}
       </div>
       <ul

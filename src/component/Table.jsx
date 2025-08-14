@@ -129,6 +129,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="january" 
+                    // year={}
                     />
                   </td>
                   <td>
