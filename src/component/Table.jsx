@@ -2,7 +2,7 @@ import { useState , useEffect } from "react"
 import supabase from "../../supabaseClient";
 import Checkbox from "./Checkbox";
 
-export default function Table() {
+export default function Table({selectedYear}) {
 
   // to add year date now
   const [studentData,setStudentData] = useState([]);
@@ -71,7 +71,7 @@ export default function Table() {
           <thead className="sticky -top-1 z-30 bg-base-100">
             <tr>
               <th className="sticky -left-1 z-20 min-w-20 bg-base-100">No.</th>
-              <th className="sticky left-12 z-20 min-w-20 bg-base-100">Name</th>
+              <th className="sticky left-12 z-20 min-w-50 bg-base-100">Name</th>
               <th className="min-w-30">Grade</th>
               <th className="text-center min-w-30">Fee</th>
               {/*  */}
@@ -129,7 +129,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="january" 
-                    // year={}
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -137,6 +137,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="february" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -144,6 +145,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="march" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -151,6 +153,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="april" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -158,6 +161,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="may" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -165,6 +169,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="june" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -172,6 +177,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="july" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -179,6 +185,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="august" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -186,6 +193,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="september" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -193,6 +201,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="november" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -200,6 +209,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="october" 
+                    year={selectedYear}
                     />
                   </td>
                   <td>
@@ -207,6 +217,7 @@ export default function Table() {
                     <Checkbox 
                     student_name={student.student_name}
                     month="december" 
+                    year={selectedYear}
                     />
                   </td>
                 </tr>

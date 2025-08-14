@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ReceiptText } from "lucide-react";
 import supabase from "../../supabaseClient";
 
-export default function Checkbox({ student_name, month }) {
+export default function Checkbox({ student_name, month, year }) {
   const [uploading, setUploading] = useState(false);
   const [receiptExists, setReceiptExists] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -16,6 +16,7 @@ export default function Checkbox({ student_name, month }) {
       .select("*")
       .eq("student_name", student_name)
       .eq("month", month)
+      .eq("year", year)
       .maybeSingle();
 
     // edge case, if error, show this error to debug it easier.
@@ -37,7 +38,7 @@ export default function Checkbox({ student_name, month }) {
   useEffect(() => {
     // calling out checkreceipt function under useEffect. so that this will run AFTER the component mounted.
     checkReceipt();
-  }, [student_name, month]);
+  }, [student_name, month, year]);
 
   async function handleUpload(event) {
     const file = event.target.files[0];
@@ -69,6 +70,7 @@ export default function Checkbox({ student_name, month }) {
       user_id: user.id,
       student_name: student_name,
       month: month,
+      year: year,
       file_path: data.path
     });
 

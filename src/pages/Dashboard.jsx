@@ -4,8 +4,10 @@ import ModalStudent from '../component/ModalStudent'
 import Button from "../component/Button"
 import Practice from "../component/Practice"
 import YearDropDown from "../component/YearDropDown"
+import { useState } from "react"
 
 export default function Dashboard() {
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   return (
     <div>
       <Navbar/>
@@ -15,9 +17,9 @@ export default function Dashboard() {
             <Button buttonName="Bulk Reminder" className={"btn btn-success"}/>
             <ModalStudent/>
           </div>
-          <YearDropDown/>
+          <YearDropDown selectedYear={selectedYear} onYearChange={setSelectedYear}/>
         </div>
-        <Table/>
+        <Table selectedYear={selectedYear}/>
       </div>
       {/* <Practice/> */}
     </div>
