@@ -1,7 +1,7 @@
 export default function YearDropDown({selectedYear, onYearChange}) {
   const thisYear = new Date().getFullYear();
 
-  // Generate years from 2000 to current year + 1
+  // Generate years from 2018 to current year + 1
   const years = Array.from(
     { length: (thisYear + 1) - 2018 + 1 },
     (_, i) => 2018 + i
