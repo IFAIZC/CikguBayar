@@ -1,6 +1,7 @@
 import { useState , useEffect } from "react"
 import supabase from "../../supabaseClient";
 import Checkbox from "./Checkbox";
+import ViewStudentInfo from "./ViewStudentInfo";
 
 export default function Table({selectedYear}) {
 
@@ -71,7 +72,7 @@ export default function Table({selectedYear}) {
           <thead className="sticky -top-1 z-30 bg-base-100">
             <tr>
               <th className="sticky -left-1 z-20 min-w-20 bg-base-100">No.</th>
-              <th className="sticky left-12 z-20 min-w-40 bg-base-100">Name</th>
+              <th className=" z-20 min-w-40 bg-base-100">Name</th>
               <th className="min-w-30">Grade</th>
               <th className="text-center min-w-30">Fee</th>
               {/*  */}
@@ -119,8 +120,10 @@ export default function Table({selectedYear}) {
               studentData.map((student,index) => (
                 <tr key={student.id}>
                   <th className="sticky -left-1 z-20 bg-base-100">{index+1}</th>
-                  {/* add modal where user can open to have a quick view of the student profile and their payment with image. */}
-                  <td className="sticky left-12 z-20 bg-base-100"><a href="">{student.student_name}</a></td>
+                  {/* <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td> */}
+                  <td className="z-20 bg-base-100">
+                    <ViewStudentInfo student={student.student_name}/>
+                  </td>
                   <td className="">{student.class}</td>
                   <td className="text-center">{student.fee}</td>
 
