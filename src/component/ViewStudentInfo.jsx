@@ -3,7 +3,7 @@ export default function ViewStudentInfo({studentData}) {
   return(
     <>
       <div className="dropdown dropdown-hover dropdown-right">
-        <div tabIndex={0} role="button" className="m-1 cursor-pointer hover:text-primary">
+        <div tabIndex={0} role="button" className="m-1 cursor-pointer hover:text-success">
           {studentData.student_name}
         </div>
         <div
@@ -15,6 +15,8 @@ export default function ViewStudentInfo({studentData}) {
             <p><span className="font-medium">Grade:</span> {studentData.class}</p>
             <p><span className="font-medium">Monthly Fee:</span> RM{studentData.fee}</p>
             <p><span className="font-medium">Parent's Contact:</span> {studentData.contact_number}</p>
+            <p><span className="font-medium">Date Join:</span> {studentData.date_join}</p>
+            <p><span className="font-medium">Date End:</span> {studentData.date_end}</p>
             <div className="flex gap-2 mt-3">
               <button className="btn btn-success btn-disabled">Edit</button>
               <button className="btn btn-success btn-disabled">Delete</button>

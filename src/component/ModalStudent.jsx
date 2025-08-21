@@ -6,6 +6,8 @@ export default function ModalStudent() {
   const [className, setClassName] = useState("");
   const [fee, setFee] = useState("");
   const [contactNumber, setContactNumber] = useState("");
+  const [dateJoin, setDateJoin] = useState("")
+  const [dateEnd, setDateEnd] = useState("")
 
   async function submitInfo(e) {
      e.preventDefault();
@@ -23,6 +25,8 @@ export default function ModalStudent() {
       class: className,
       fee: fee,
       contact_number: contactNumber,
+      date_join: dateJoin,
+      date_end: dateEnd,
     }]);
 
     if (error) {
@@ -48,6 +52,12 @@ export default function ModalStudent() {
   }
   function submitNumber(e) {
     setContactNumber(e.target.value)
+  }
+  function submitJoinDate(e) {
+    setDateJoin(e.target.value)
+  }
+  function submitEndDate(e) {
+    setDateEnd(e.target.value)
   }
 
   return(
@@ -79,8 +89,16 @@ export default function ModalStudent() {
 
                   <label className="label">Fee</label>
                   <input type="number" className="input mb-3" placeholder="Total Fee" value={fee} onChange={submitFee}/>
+
                   <label className="label">Parent's Contact Number</label>
                   <input type="tel" className="input mb-3" placeholder="Contact Number" value={contactNumber} onChange={submitNumber} />
+
+                  <label className="label">Joined Date</label>
+                  <input type="date" className="input mb-3" onChange={submitJoinDate} />
+
+                  <label className="label">End Date</label>
+                  <input type="date" className="input mb-3" onChange={submitEndDate}/>
+
                   <button className="btn btn-neutral mt-4" type="submit">Submit</button>
                 </fieldset>
               </form>

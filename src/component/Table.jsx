@@ -4,8 +4,6 @@ import Checkbox from "./Checkbox";
 import ViewStudentInfo from "./ViewStudentInfo";
 
 export default function Table({selectedYear}) {
-
-  // to add year date now
   const [studentData,setStudentData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -62,10 +60,6 @@ export default function Table({selectedYear}) {
               <th className="text-center min-w-30">October</th>
               <th className="text-center min-w-30">December</th>
               {/*  */}
-              {/* <th className="text-center">Delete</th>
-              <th className="text-center">Edit</th>
-              <th className="text-center">Remind</th>
-              <th className="text-center">Invoice</th> */}
             </tr>
           </thead>
 
