@@ -30,33 +30,6 @@ export default function Table({selectedYear}) {
       }
 
       setStudentData(userData);
-
-      // // Get all student IDs
-      // const studentIds = userData.map((s) => s.id);
-
-      // // Fetch payment records
-      // const { data: payments, error: paymentError } = await supabase
-      //   .from("payment")
-      //   .select("*")
-      //   .in("student_id", studentIds);
-
-      // if (paymentError) {
-      //   console.error("Error fetching payments:", paymentError);
-      // } else {
-      //   // Organize payment data by student and month
-      //   // ***to study this and why this was coded like this***
-      //   const paymentMap = {};
-
-      //   payments.forEach(payment => {
-      //     if (!paymentMap[payment.student_id]) {
-      //       paymentMap[payment.student_id] = {};
-      //     }
-      //     paymentMap[payment.student_id][payment.month] = payment;
-      //   });
-
-      //   setStudentPayments(paymentMap);
-      // }
-
       setLoading(false);
     };
 
@@ -120,9 +93,9 @@ export default function Table({selectedYear}) {
               studentData.map((student,index) => (
                 <tr key={student.id}>
                   <th className="sticky -left-1 z-20 bg-base-100">{index+1}</th>
-                  {/* <td className="sticky left-12 z-20 bg-base-100">{student.student_name}</td> */}
+                  {/* hover drop down to view student info */}
                   <td className="z-20 bg-base-100">
-                    <ViewStudentInfo student={student.student_name}/>
+                    <ViewStudentInfo studentData={student}/>
                   </td>
                   <td className="">{student.class}</td>
                   <td className="text-center">{student.fee}</td>
