@@ -11,7 +11,7 @@ export default function ModalStudent() {
 
   async function submitInfo(e) {
      e.preventDefault();
-    if (!studentName || !className || !fee || !contactNumber) {
+    if (!studentName || !className || !fee || !contactNumber || !dateJoin || !dateEnd) {
       alert("Please fill in all fields!");
       return;
     }
@@ -67,10 +67,11 @@ export default function ModalStudent() {
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box" style={{ maxWidth: "300px" }}>
+              <h1 className="mb-6 font-bold text-center">Add Student Form</h1>
               <form onSubmit={submitInfo}>
                 <fieldset className="fieldset">
                   <label className="label">Student's Name</label>
-                  <input type="text" className="input mb-3" placeholder="Student Name" value={studentName} onChange={submitName}/>
+                  <input type="text" className="input validator mb-3" required placeholder="Student Name" value={studentName} onChange={submitName} pattern="[A-Za-z][A-Za-z\s\-]*" minlength="3" maxlength="30" title="Only letters"/>
 
                   <label className="label">Grade</label>
                   <select defaultValue="" className="select mb-3" onChange={submitClassName}>
@@ -91,7 +92,11 @@ export default function ModalStudent() {
                   <input type="number" className="input mb-3" placeholder="Total Fee" value={fee} onChange={submitFee}/>
 
                   <label className="label">Parent's Contact Number</label>
-                  <input type="tel" className="input mb-3" placeholder="Contact Number" value={contactNumber} onChange={submitNumber} />
+                  {/* <input type="tel" className="input mb-3" placeholder="Contact Number" value={contactNumber} onChange={submitNumber} /> */}
+
+                  <input type="tel" className="input validator tabular-nums mb-3" required placeholder="Contact Number" value={contactNumber} onChange={submitNumber}
+                    pattern="[0-9]*" minlength="10" maxlength="12" title="Must be minimum 10 digits & numbers only" />
+                  {/* <p className="validator-hint">Must be 10 digits</p> */}
 
                   <label className="label">Joined Date</label>
                   <input type="date" className="input mb-3" onChange={submitJoinDate} />
