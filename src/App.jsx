@@ -22,7 +22,7 @@ function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
 
   return (
     <Routes>
