@@ -8,8 +8,12 @@ cikguPay was built with love and intention to simplify that process. With just o
 
 It's fast, simple, and made to help cikgus focus more on teaching, less on chasing payments. That's CikguPay!
 
-Web UI :
+Web UI : V1
 <img width="1396" alt="Screenshot 2025-07-04 at 9 14 05 PM" src="https://github.com/user-attachments/assets/6c1f1a6e-c420-44ec-ac86-61a78864a8d8" />
+
+V2
+<img width="1391" height="717" alt="Screenshot 2025-08-29 at 12 39 37 PM" src="https://github.com/user-attachments/assets/323c0ce7-1597-40c6-a8fa-071f6333af11" />
+
 
 Mobile UI :
 
