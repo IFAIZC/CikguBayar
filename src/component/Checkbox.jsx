@@ -107,6 +107,7 @@ export default function Checkbox({ student_name, month, year }) {
         {/* add reminder button */}
         {/* add function to reminder */}
         {/* to plan the flow 8th Aug 2025*/}
+        {/* adding invoice feature 30n aug */}
       </label>
     </div>
   );
