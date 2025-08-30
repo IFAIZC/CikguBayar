@@ -104,11 +104,8 @@ export default function Checkbox({ student_name, month, year }) {
           className="hidden"
         />
         <ReceiptText className={uploading ? "opacity-50" : ""} />
-        {/* add reminder button */}
-        {/* add function to reminder */}
-        {/* to plan the flow 8th Aug 2025*/}
-        {/* adding invoice feature 30n aug */}
       </label>
+      <img src="/whatsapp-svgrepo-com.svg" alt="ws logo" className="w-6 h-6"/>
     </div>
   );
 }
