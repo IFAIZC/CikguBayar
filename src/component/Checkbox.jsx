@@ -6,7 +6,6 @@ export default function Checkbox({ student_name, month, year }) {
   const [uploading, setUploading] = useState(false);
   const [receiptExists, setReceiptExists] = useState(false);
   const [loading, setLoading] = useState(true);
-
   const [paid,setPaid] = useState(false)
 
   // we write this outside of useEffect, so we can re-use it under useEffect later
@@ -42,6 +41,7 @@ export default function Checkbox({ student_name, month, year }) {
   useEffect(() => {
     // calling out checkreceipt function under useEffect. so that this will run AFTER the component mounted.
     checkReceipt();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [student_name, month, year]);
 
   async function handleUpload(event) {
