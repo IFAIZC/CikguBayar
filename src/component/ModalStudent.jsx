@@ -71,7 +71,7 @@ export default function ModalStudent() {
               <form onSubmit={submitInfo}>
                 <fieldset className="fieldset">
                   <label className="label">Student's Name</label>
-                  <input type="text" className="input validator mb-3" required placeholder="Student Name" value={studentName} onChange={submitName} pattern="[A-Za-z][A-Za-z\s\-]*" minlength="3" maxlength="30" title="Only letters"/>
+                  <input type="text" className="input validator mb-3" required placeholder="Student Name" value={studentName} onChange={submitName} pattern="[A-Za-z][A-Za-z\s\-]*" minLength="3" maxLength="30" title="Only letters"/>
 
                   <label className="label">Grade</label>
                   <select defaultValue="" className="select mb-3" onChange={submitClassName}>
@@ -95,7 +95,7 @@ export default function ModalStudent() {
                   {/* <input type="tel" className="input mb-3" placeholder="Contact Number" value={contactNumber} onChange={submitNumber} /> */}
 
                   <input type="tel" className="input validator tabular-nums mb-3" required placeholder="Contact Number" value={contactNumber} onChange={submitNumber}
-                    pattern="[0-9]*" minlength="10" maxlength="12" title="Must be minimum 10 digits & numbers only" />
+                    pattern="[0-9]*" minLength="10" maxLength="12" title="Must be minimum 10 digits & numbers only" />
                   {/* <p className="validator-hint">Must be 10 digits</p> */}
 
                   <label className="label">Joined Date</label>
