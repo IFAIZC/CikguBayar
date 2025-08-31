@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { ReceiptText } from "lucide-react";
 import supabase from "../../supabaseClient";
-import button from "daisyui/components/button";
 
 export default function Checkbox({ student_name, month, year }) {
   const [uploading, setUploading] = useState(false);
@@ -30,8 +29,10 @@ export default function Checkbox({ student_name, month, year }) {
     // if we got the data, pass the data to setReceiptExists, so that we can use receiptExists later on to toggle true or false.
     if (data) {
       setReceiptExists(true);
+      setPaid(true)
     } else {
       setReceiptExists(false); // ensure it's reset if not found
+      setPaid(false)
     }
 
     // if i have loading animation, this will toggle 
@@ -85,7 +86,6 @@ export default function Checkbox({ student_name, month, year }) {
 
     // ✅ Recheck the receipt immediately after uploading
     await checkReceipt();
-
     setUploading(false);
   }
 
@@ -112,9 +112,10 @@ export default function Checkbox({ student_name, month, year }) {
       {paid ? 
       <button className="cursor-pointer relative">
         <img src="/whatsapp.svg" alt="ws logo" className="w-6 h-6"/>
+        {/* need to link phone number and whatsapp API to bring to whatsapp */}
       </button>
       :
-      <button className="cursor-pointer relative">
+      <button className="cursor-not-allowed disabled">
         <img src="/whatsapp-svgrepo-com.svg" alt="ws logo" className="w-6 h-6"/>
       </button>
     }
