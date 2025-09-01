@@ -47,18 +47,18 @@ export default function Table({selectedYear}) {
               <th className="min-w-30">Grade</th>
               <th className="text-center min-w-30">Fee</th>
               {/*  */}
-              <th className="text-center min-w-30">January</th>
-              <th className="text-center min-w-30">February</th>
-              <th className="text-center min-w-30">March</th>
-              <th className="text-center min-w-30">April</th>
-              <th className="text-center min-w-30">May</th>
-              <th className="text-center min-w-30">June</th>
-              <th className="text-center min-w-30">July</th>
-              <th className="text-center min-w-30">August</th>
-              <th className="text-center min-w-30">September</th>
-              <th className="text-center min-w-30">November</th>
-              <th className="text-center min-w-30">October</th>
-              <th className="text-center min-w-30">December</th>
+              <th className="text-center min-w-40">January</th>
+              <th className="text-center min-w-40">February</th>
+              <th className="text-center min-w-40">March</th>
+              <th className="text-center min-w-40">April</th>
+              <th className="text-center min-w-40">May</th>
+              <th className="text-center min-w-40">June</th>
+              <th className="text-center min-w-40">July</th>
+              <th className="text-center min-w-40">August</th>
+              <th className="text-center min-w-40">September</th>
+              <th className="text-center min-w-40">November</th>
+              <th className="text-center min-w-40">October</th>
+              <th className="text-center min-w-40">December</th>
               {/*  */}
             </tr>
           </thead>

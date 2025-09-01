@@ -89,11 +89,15 @@ export default function Checkbox({ student_name, month, year }) {
     setUploading(false);
   }
 
+  function testingClick() {
+    alert("are you sure to forward this invoice to [name]?")
+  }
+
   return (
     <div className="flex justify-center items-center gap-2">
       <input
         type="checkbox"
-        className="checkbox checkbox-success"
+        className="checkbox checkbox-success cursor-not-allowed"
         disabled={!receiptExists} //if false, remain disabled/unchecked
         checked={receiptExists} //if true, checked
         readOnly
@@ -110,7 +114,7 @@ export default function Checkbox({ student_name, month, year }) {
       </label>
 
       {paid ? 
-      <button className="cursor-pointer relative">
+      <button className="cursor-pointer relative" onClick={testingClick}>
         <img src="/whatsapp.svg" alt="ws logo" className="w-6 h-6"/>
         {/* need to link phone number and whatsapp API to bring to whatsapp */}
       </button>
