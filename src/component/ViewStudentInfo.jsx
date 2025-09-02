@@ -2,7 +2,7 @@ export default function ViewStudentInfo({studentData}) {
 
   return(
     <>
-      <div className="dropdown dropdown-hover dropdown-right">
+      <div className="dropdown dropdown-right">
         <div tabIndex={0} role="button" className="m-1 cursor-pointer hover:text-success">
           {studentData.student_name}
         </div>
