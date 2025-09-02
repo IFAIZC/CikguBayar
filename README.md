@@ -6,7 +6,10 @@ Many cikgu tuition/private tutors still rely on manual spreadsheets and WhatsApp
 Solution:
 cikguPay was built with love and intention to simplify that process. With just one click, it copies a list of unpaid students directly to the clipboard. Teachers can instantly paste it into their WhatsApp group. No stress, no hunting through spreadsheets.
 
-It's fast, simple, and made to help cikgus focus more on teaching, less on chasing payments. That's CikguPay!
+It's fast, simple, and made to help cikgus focus more on teaching, less on chasing payments. That's CikguPay! 
+
+Quick run through on what it looks like here :
+https://youtu.be/Y8xHb5z48-w
 
 Web UI : V1
 <img width="1396" alt="Screenshot 2025-07-04 at 9 14 05 PM" src="https://github.com/user-attachments/assets/6c1f1a6e-c420-44ec-ac86-61a78864a8d8" />

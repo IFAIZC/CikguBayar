@@ -8,7 +8,6 @@ function App() {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // **** PLEASE STUDY WHAT THIS CODE DO!!!! - 16/7/2025
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);

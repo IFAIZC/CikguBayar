@@ -123,7 +123,6 @@ export default function Checkbox({ student_name, month, year }) {
         <img src="/whatsapp-svgrepo-com.svg" alt="ws logo" className="w-6 h-6"/>
       </button>
     }
-
     </div>
   );
 }
